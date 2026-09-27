@@ -1,0 +1,21 @@
+[project]
+name = "order-management-agent-python"
+version = "0.1.0"
+description = "Microsoft Foundry hosted Python order management agent."
+requires-python = ">=3.13"
+dependencies = [
+    "agent-framework-foundry",
+    "agent-framework-foundry-hosting>=1.0.0b260813",
+    "azure-ai-projects>=2.3.0",
+    "azure-identity>=1.25.0",
+    "debugpy",
+    "httpx>=0.28.1",
+    "python-dotenv>=1.1.0",
+]
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["hosted_agent_definition"]
