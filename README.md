@@ -357,7 +357,7 @@ Required repository secret:
 - `AZURE_CREDENTIALS_AGENT_DEPLOY`: JSON credentials for `azure/login`.
   Its service principal requires `Container Registry Tasks Contributor` on
   the target ACR and `Foundry User` on the target Foundry project.
-- `AGENT_ENV`: complete `Agents\.env` content. It must include
+- `ENV`: complete `Agents\.env` content. It must include
   `PROJECT_ENDPOINT`, `DEPLOYMENT_NAME`, `HOSTED_AGENT_NAME`,
   `HOSTED_AGENT_IMAGE`, and the tool connection settings from
   `Agents\.env.example`.

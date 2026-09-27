@@ -52,10 +52,23 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create agent environment file from secret
-        run: 'printf "%s" "$AGENT_ENV" > Agents/.env'
+        run: |
+          if [[ -z "$AGENT_ENV" ]]; then
+            echo "::error::Repository secret ENV is empty or unavailable."
+            exit 1
+          fi
+
+          printf "%s\n" "$AGENT_ENV" > Agents/.env
+
+          for setting in PROJECT_ENDPOINT DEPLOYMENT_NAME; do
+            if ! grep -qE "^${setting}=.+" Agents/.env; then
+              echo "::error::Repository secret ENV is missing ${setting}."
+              exit 1
+            fi
+          done
         shell: bash
         env:
-          AGENT_ENV: ${{ secrets.AGENT_ENV }}
+          AGENT_ENV: ${{ secrets.ENV }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
