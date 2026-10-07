@@ -8,6 +8,13 @@ The repository follows the same container build, Python SDK deployment, folder
 structure, and GitHub Actions pattern as
 `Simple-Agent-App-Hosted-Agent`.
 
+This project demonstrates the use of:
+- An existing REST API exposed through an MCP endpoint hosted on API Management
+- Three IQ capabilities of Microsoft IQ:
+  - Foundry IQ
+  - Fabric IQ
+  - Web IQ
+
 ## Architecture
 
 ```text
